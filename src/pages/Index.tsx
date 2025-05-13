@@ -58,18 +58,18 @@ const Index = () => {
     {
       id: 4,
       icon: <Package className="h-10 w-10 text-purple-600" />,
-      title: "Receive Your Stickers", // Keeping "Stickers" as per image, though business sells "Gifts"
+      title: "Receive Your Stickers",
       description: "Your personalized stickers will be delivered to your doorstep."
     }
   ];
 
   const designExamples = [
-    { id: 1, name: "Superhero Theme", color: "bg-blue-200" },
-    { id: 2, name: "Princess Dreams", color: "bg-pink-200" },
-    { id: 3, name: "Animal Friends", color: "bg-green-200" },
-    { id: 4, name: "Space Adventure", color: "bg-indigo-200" },
-    { id: 5, name: "Unicorn Magic", color: "bg-purple-200" },
-    { id: 6, name: "Sports Star", color: "bg-yellow-200" },
+    { id: 1, name: "Superhero Theme", color: "bg-blue-200", imgSrc: "https://images.unsplash.com/photo-1576773720283-a3314880dda3?auto=format&fit=crop&w=300&q=80", alt: "Superhero design" },
+    { id: 2, name: "Princess Dreams", color: "bg-pink-200", imgSrc: "https://images.unsplash.com/photo-1581860226246-b1a7a6671a8d?auto=format&fit=crop&w=300&q=80", alt: "Princess design" },
+    { id: 3, name: "Animal Friends", color: "bg-green-200", imgSrc: "https://images.unsplash.com/photo-1517059777501-45759cd18372?auto=format&fit=crop&w=300&q=80", alt: "Animal design" },
+    { id: 4, name: "Space Adventure", color: "bg-indigo-200", imgSrc: "https://images.unsplash.com/photo-1581833834593-f1d99a02d302?auto=format&fit=crop&w=300&q=80", alt: "Space design" },
+    { id: 5, name: "Unicorn Magic", color: "bg-purple-200", imgSrc: "https://images.unsplash.com/photo-1593239008061-43865a7392ab?auto=format&fit=crop&w=300&q=80", alt: "Unicorn design" },
+    { id: 6, name: "Sports Star", color: "bg-yellow-200", imgSrc: "https://images.unsplash.com/photo-1552667466-07770ae910d9?auto=format&fit=crop&w=300&q=80", alt: "Sports design" },
   ];
 
   // Changed React.useRef to useRef
@@ -123,7 +123,7 @@ const Index = () => {
             <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
             </Button>
-             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50" onClick={() => alert("Online order form coming soon! You can link this to a Google Form or Typeform.")}>
+             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => alert("Online order form coming soon! You can link this to a Google Form or Typeform.")}>
               <Send className="mr-2 h-5 w-5" /> Order Online
             </Button>
           </div>
@@ -131,7 +131,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 text-center bg-white">
+      <section className="py-16 md:py-20 text-center bg-white"> {/* Reduced bottom padding from md:py-24 to md:py-20 */}
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
             Brighten Their Day with Personalized Gifts!
@@ -147,7 +147,7 @@ const Index = () => {
               <Send className="mr-2" /> Order Online Now
             </Button>
           </div>
-          <img src="https://images.unsplash.com/photo-1518364538800-60f2d5ce9956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGtpZHMlMjBoYXBweSUyMHdpdGglMjBzdGlja2Vyc3xlbnwwfHwwfHx8MA&auto=format&fit=crop&w=1000&q=80" alt="Happy kids with gifts" className="mt-12 mx-auto rounded-lg shadow-xl max-h-96" />
+          {/* Removed the image: <img src="https://images.unsplash.com/photo-1518364538800-60f2d5ce9956?..." alt="Happy kids with gifts" className="mt-12 mx-auto rounded-lg shadow-xl max-h-96" /> */}
         </div>
       </section>
 
@@ -226,7 +226,11 @@ const Index = () => {
             {designExamples.map((design) => (
               <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
                 <CardContent className="flex flex-col items-center justify-center p-6 aspect-square">
-                  <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60" /> {/* Added Icon */}
+                  {design.imgSrc ? (
+                    <img src={design.imgSrc} alt={design.alt} className="w-24 h-24 object-contain mb-4 rounded-md" />
+                  ) : (
+                    <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60" />
+                  )}
                   <p className="font-semibold text-lg text-gray-800 text-center">{design.name}</p>
                   <p className="text-sm text-gray-600">More details soon</p>
                 </CardContent>
@@ -265,7 +269,8 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Final CTA */}
+      {/* Final CTA: This section was requested to be removed by the user, but it was removed in a previous step. Keeping it commented out as a reminder if needed. */}
+      {/* 
       <section className="py-16 md:py-24 bg-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Your Custom Gifts?</h3>
@@ -285,7 +290,8 @@ const Index = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> 
+      */}
 
       {/* Footer */}
       <footer className="py-8 text-center bg-gray-800 text-gray-400">
