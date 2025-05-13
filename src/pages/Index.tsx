@@ -136,13 +136,13 @@ const Index = () => {
             Brighten Their Day with Personalized Gifts!
           </h2>
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-0 md:mx-auto">
-            Create adorable, custom gifts for your child featuring their photo, name, school, and more! Perfect for labeling belongings or as a unique present.
+            Create adorable, custom NameSlips for your child featuring their photo, name, school, and more! Perfect for labeling belongings or as a unique present.
           </p>
           <div className="flex justify-start md:justify-center space-x-4">
             <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform">
               <MessageSquare className="mr-2" /> Order via WhatsApp
             </Button>
-            <Button size="lg" variant="secondary" className="bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform" onClick={() => alert("Online order form coming soon! You can link this to a Google Form or Typeform.")}>
+            <Button size="lg" variant="secondary" className="bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform" onClick={() => onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform", "_blank")}}>
               <Send className="mr-2" /> Order Online Now
             </Button>
           </div>
