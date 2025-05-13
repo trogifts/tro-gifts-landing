@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck, Image as ImageIconLucide } from "lucide-react"; // Added ImageIconLucide and renamed to avoid conflict if an ImageIcon component existed
-import { cn } from "@/lib/utils"; // Added cn for utility
+import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck, Image as ImageIconLucide } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Index = () => {
   const placeholderWhatsAppNumber = "9072993180"; // Replace with your actual WhatsApp number
@@ -19,7 +19,7 @@ const Index = () => {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1721322800607-8c383fusbneef04?auto=format&fit=crop&w=1000&q=80", // Corrected potential typo in URL
+      src: "https://images.unsplash.com/photo-1721322800607-8c383fusbneef04?auto=format&fit=crop&w=1000&q=80",
       alt: "Poster Example 2",
     },
     {
@@ -72,7 +72,6 @@ const Index = () => {
     { id: 6, name: "Sports Star", color: "bg-yellow-200", imgSrc: "https://images.unsplash.com/photo-1552667466-07770ae910d9?auto=format&fit=crop&w=300&q=80", alt: "Sports design" },
   ];
 
-  // Changed React.useRef to useRef
   const plugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
@@ -119,7 +118,7 @@ const Index = () => {
             <Gift className="inline-block mr-2 h-8 w-8" />
             Tro Gifts
           </h1>
-          <div className="space-x-2">
+          <div className="hidden md:flex space-x-2">
             <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
             </Button>
@@ -131,15 +130,15 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-20 text-center bg-white"> {/* Reduced bottom padding from md:py-24 to md:py-20 */}
+      <section className="py-16 md:py-20 text-left md:text-center bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
             Brighten Their Day with Personalized Gifts!
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-0 md:mx-auto">
             Create adorable, custom gifts for your child featuring their photo, name, school, and more! Perfect for labeling belongings or as a unique present.
           </p>
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-start md:justify-center space-x-4">
             <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform">
               <MessageSquare className="mr-2" /> Order via WhatsApp
             </Button>
@@ -147,18 +146,17 @@ const Index = () => {
               <Send className="mr-2" /> Order Online Now
             </Button>
           </div>
-          {/* Removed the image: <img src="https://images.unsplash.com/photo-1518364538800-60f2d5ce9956?..." alt="Happy kids with gifts" className="mt-12 mx-auto rounded-lg shadow-xl max-h-96" /> */}
         </div>
       </section>
 
       {/* New Poster Carousel Section */}
       <section id="posters" className="py-16 md:py-20 bg-purple-50">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-purple-700">Our Featured Posters</h3>
+          <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-purple-700">Our Featured Posters</h3>
           <Carousel
-            setApi={setCarouselApi} // Pass setApi to get the CarouselApi instance
+            setApi={setCarouselApi}
             plugins={[plugin.current]}
-            className="w-full max-w-3xl mx-auto" // Increased max-width for wider aspect ratio
+            className="w-full max-w-3xl mx-0 md:mx-auto"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
             opts={{
@@ -170,7 +168,7 @@ const Index = () => {
                 <CarouselItem key={poster.id}>
                   <div className="p-1">
                     <Card className="overflow-hidden shadow-lg">
-                      <CardContent className="flex items-center justify-center p-0 aspect-[16/9]"> {/* Changed aspect ratio */}
+                      <CardContent className="flex items-center justify-center p-0 aspect-[16/9]">
                         <img src={poster.src} alt={poster.alt} className="w-full h-full object-cover" />
                       </CardContent>
                     </Card>
@@ -181,7 +179,6 @@ const Index = () => {
             <CarouselPrevious className="ml-[-40px] text-purple-600 bg-white/80 hover:bg-purple-100" />
             <CarouselNext className="mr-[-40px] text-purple-600 bg-white/80 hover:bg-purple-100" />
           </Carousel>
-          {/* Carousel Dots */}
           {slideCount > 0 && (
             <div className="flex justify-center gap-2 mt-6">
               {Array.from({ length: slideCount }).map((_, index) => (
@@ -205,11 +202,11 @@ const Index = () => {
       {/* Updated What Makes Our Gifts Special Section */}
       <section id="specialities" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-pink-600">What Makes Our Gifts Special?</h3>
+          <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-pink-600">What Makes Our Gifts Special?</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {specialities.map((speciality) => (
-              <div key={speciality.title} className="text-center p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex justify-center mb-4">{speciality.icon}</div>
+              <div key={speciality.title} className="text-left md:text-center p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex justify-start md:justify-center mb-4">{speciality.icon}</div>
                 <h4 className="text-xl font-semibold text-gray-700 mb-2">{speciality.title}</h4>
                 <p className="text-gray-600 text-sm">{speciality.description}</p>
               </div>
@@ -221,37 +218,37 @@ const Index = () => {
       {/* New Designs Section */}
       <section id="designs" className="py-16 md:py-20 bg-yellow-50">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-700">Explore Our Designs</h3>
+          <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-yellow-700">Explore Our Designs</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {designExamples.map((design) => (
               <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
-                <CardContent className="flex flex-col items-center justify-center p-6 aspect-square">
+                <CardContent className="flex flex-col items-start md:items-center justify-center p-6 aspect-square">
                   {design.imgSrc ? (
-                    <img src={design.imgSrc} alt={design.alt} className="w-24 h-24 object-contain mb-4 rounded-md" />
+                    <img src={design.imgSrc} alt={design.alt} className="w-24 h-24 object-contain mb-4 rounded-md self-start md:self-center" />
                   ) : (
-                    <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60" />
+                    <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60 self-start md:self-center" />
                   )}
-                  <p className="font-semibold text-lg text-gray-800 text-center">{design.name}</p>
-                  <p className="text-sm text-gray-600">More details soon</p>
+                  <p className="font-semibold text-lg text-gray-800 text-left md:text-center">{design.name}</p>
+                  <p className="text-sm text-gray-600 text-left md:text-center">More details soon</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-           <p className="text-center mt-8 text-gray-600">More exciting designs coming soon. Stay tuned!</p>
+           <p className="text-left md:text-center mt-8 text-gray-600">More exciting designs coming soon. Stay tuned!</p>
         </div>
       </section>
 
       {/* Updated How to Order Section */}
       <section id="how-to-order" className="py-16 md:py-20 bg-green-50">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-4 text-green-700">How It Works</h3>
-          <p className="text-center text-gray-600 mb-12 max-w-xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-4 text-green-700">How It Works</h3>
+          <p className="text-left md:text-center text-gray-600 mb-12 max-w-xl mx-0 md:mx-auto">
             Ordering your personalized name stickers is quick and easy. Follow these simple steps:
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left md:text-center mb-12">
             {howToOrderSteps.map((step) => (
-              <Card key={step.id} className="bg-white shadow-lg p-6 flex flex-col items-center">
-                <div className="relative mb-4">
+              <Card key={step.id} className="bg-white shadow-lg p-6 flex flex-col items-start md:items-center">
+                <div className="relative mb-4 self-start md:self-center">
                   <div className="flex items-center justify-center h-20 w-20 rounded-full bg-purple-100">
                     {step.icon}
                   </div>
@@ -294,7 +291,7 @@ const Index = () => {
       */}
 
       {/* Footer */}
-      <footer className="py-8 text-center bg-gray-800 text-gray-400">
+      <footer className="py-8 text-left md:text-center bg-gray-800 text-gray-400">
         <div className="container mx-auto px-4">
           <p>&copy; {new Date().getFullYear()} Tro Gifts. All rights reserved.</p>
           <p className="text-sm mt-1">Create with love for your little ones!</p>
