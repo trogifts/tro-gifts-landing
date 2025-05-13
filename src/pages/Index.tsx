@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck } from "lucide-react"; // Added more icons
+import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck, Image as ImageIconLucide } from "lucide-react"; // Added ImageIconLucide and renamed to avoid conflict if an ImageIcon component existed
+import { cn } from "@/lib/utils"; // Added cn for utility
 
 const Index = () => {
   const placeholderWhatsAppNumber = "1234567890"; // Replace with your actual WhatsApp number
@@ -76,6 +77,39 @@ const Index = () => {
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
 
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | undefined>();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slideCount, setSlideCount] = useState(0);
+
+  useEffect(() => {
+    if (!carouselApi) {
+      return;
+    }
+    setSlideCount(carouselApi.scrollSnapList().length);
+    setCurrentSlide(carouselApi.selectedScrollSnap());
+
+    const onSelect = () => {
+      if (carouselApi) {
+        setCurrentSlide(carouselApi.selectedScrollSnap());
+      }
+    };
+    
+    const onReInit = () => {
+      if (carouselApi) {
+        setSlideCount(carouselApi.scrollSnapList().length);
+        setCurrentSlide(carouselApi.selectedScrollSnap());
+      }
+    }
+
+    carouselApi.on("select", onSelect);
+    carouselApi.on("reInit", onReInit);
+
+    return () => {
+      carouselApi.off("select", onSelect);
+      carouselApi.off("reInit", onReInit);
+    };
+  }, [carouselApi]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-yellow-100 text-gray-800 font-sans">
       {/* Header */}
@@ -122,8 +156,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-purple-700">Our Featured Posters</h3>
           <Carousel
+            setApi={setCarouselApi} // Pass setApi to get the CarouselApi instance
             plugins={[plugin.current]}
-            className="w-full max-w-2xl mx-auto"
+            className="w-full max-w-3xl mx-auto" // Increased max-width for wider aspect ratio
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
             opts={{
@@ -135,7 +170,7 @@ const Index = () => {
                 <CarouselItem key={poster.id}>
                   <div className="p-1">
                     <Card className="overflow-hidden shadow-lg">
-                      <CardContent className="flex aspect-square items-center justify-center p-0">
+                      <CardContent className="flex items-center justify-center p-0 aspect-[16/9]"> {/* Changed aspect ratio */}
                         <img src={poster.src} alt={poster.alt} className="w-full h-full object-cover" />
                       </CardContent>
                     </Card>
@@ -146,6 +181,24 @@ const Index = () => {
             <CarouselPrevious className="ml-[-40px] text-purple-600 bg-white/80 hover:bg-purple-100" />
             <CarouselNext className="mr-[-40px] text-purple-600 bg-white/80 hover:bg-purple-100" />
           </Carousel>
+          {/* Carousel Dots */}
+          {slideCount > 0 && (
+            <div className="flex justify-center gap-2 mt-6">
+              {Array.from({ length: slideCount }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => carouselApi?.scrollTo(index)}
+                  className={cn(
+                    "h-3 w-3 rounded-full transition-all duration-300 ease-out",
+                    index === currentSlide
+                      ? "bg-purple-600 scale-125"
+                      : "bg-purple-300 hover:bg-purple-400"
+                  )}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -173,8 +226,8 @@ const Index = () => {
             {designExamples.map((design) => (
               <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
                 <CardContent className="flex flex-col items-center justify-center p-6 aspect-square">
-                  {/* Removed ImageIcon component as it's not defined and no suitable replacement from allowed icons */}
-                  <p className="font-semibold text-lg text-gray-800">{design.name}</p>
+                  <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60" /> {/* Added Icon */}
+                  <p className="font-semibold text-lg text-gray-800 text-center">{design.name}</p>
                   <p className="text-sm text-gray-600">More details soon</p>
                 </CardContent>
               </Card>
@@ -209,17 +262,6 @@ const Index = () => {
               </Card>
             ))}
           </div>
-          <div className="text-center">
-            <p className="text-2xl font-semibold text-gray-700 mb-6">Ready to Get Started?</p>
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button size="lg" onClick={() => alert("Online order form coming soon!")} className="bg-purple-600 hover:bg-purple-700 text-white w-full sm:w-auto">
-                    Order Online
-                </Button>
-                <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white w-full sm:w-auto">
-                    Order via WhatsApp
-                </Button>
-            </div>
-          </div>
         </div>
       </section>
       
@@ -234,7 +276,11 @@ const Index = () => {
             <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white w-full sm:w-auto">
               <MessageSquare className="mr-2" /> Order via WhatsApp
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 w-full sm:w-auto" onClick={() => alert("Online order form coming soon!")}>
+            <Button 
+              size="lg" 
+              className="bg-white text-purple-600 hover:bg-purple-100 hover:text-purple-700 w-full sm:w-auto" // Changed button style
+              onClick={() => alert("Online order form coming soon!")}
+            >
               <Send className="mr-2" /> Order Online
             </Button>
           </div>
