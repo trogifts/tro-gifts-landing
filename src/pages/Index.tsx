@@ -7,8 +7,8 @@ import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Cl
 import { cn } from "@/lib/utils"; // Added cn for utility
 
 const Index = () => {
-  const placeholderWhatsAppNumber = "1234567890"; // Replace with your actual WhatsApp number
-  const prefilledMessage = encodeURIComponent("Hi, I’d like to order a custom gift from Tro Gifts.");
+  const placeholderWhatsAppNumber = "9072993180"; // Replace with your actual WhatsApp number
+  const prefilledMessage = encodeURIComponent("Hello TroGifts! I'd like to place an order.");
   const whatsappLink = `https://wa.me/${placeholderWhatsAppNumber}?text=${prefilledMessage}`;
 
   const posterExamples = [
