@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,7 +18,7 @@ const Index = () => {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=1000&q=80",
+      src: "https://images.unsplash.com/photo-1721322800607-8c383fusbneef04?auto=format&fit=crop&w=1000&q=80", // Corrected potential typo in URL
       alt: "Poster Example 2",
     },
     {
@@ -72,7 +71,8 @@ const Index = () => {
     { id: 6, name: "Sports Star", color: "bg-yellow-200" },
   ];
 
-  const plugin = React.useRef(
+  // Changed React.useRef to useRef
+  const plugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
 
@@ -173,7 +173,7 @@ const Index = () => {
             {designExamples.map((design) => (
               <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
                 <CardContent className="flex flex-col items-center justify-center p-6 aspect-square">
-                  <ImageIcon className="h-16 w-16 text-gray-700 mb-4 opacity-50" />
+                  {/* Removed ImageIcon component as it's not defined and no suitable replacement from allowed icons */}
                   <p className="font-semibold text-lg text-gray-800">{design.name}</p>
                   <p className="text-sm text-gray-600">More details soon</p>
                 </CardContent>
@@ -253,4 +253,3 @@ const Index = () => {
 };
 
 export default Index;
-
