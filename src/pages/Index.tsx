@@ -123,7 +123,7 @@ const Index = () => {
             <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
             </Button>
-             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(whatsappLink, '_blank')}>
+             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(forms, '_blank')}>
               <Send className="mr-2 h-5 w-5" /> Order Online
             </Button>
           </div>
@@ -143,7 +143,7 @@ const Index = () => {
             <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform">
               <MessageSquare className="mr-2" /> Order via WhatsApp
             </Button>
-            <Button size="lg" variant="secondary" className="bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform" onClick={() => onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform", "_blank")}}>
+            <Button size="lg" variant="secondary" className="bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform"  onClick={() => window.open(forms, '_blank')}>
               <Send className="mr-2" /> Order Online Now
             </Button>
           </div>
