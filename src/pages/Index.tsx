@@ -305,48 +305,52 @@ const Index = () => {
       </section> 
 
       {/* Footer */}
-      <footer className="py-12 bg-white text-gray-700">
+      <footer className="py-12 bg-gray-800 text-white">
         <div className="container mx-auto px-4">
+          <div className="mb-8 text-center">
+            <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} TroGifts. All rights reserved.</p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left Column: TroGifts Info */}
-            <div className="text-left">
-              <div className="flex items-center mb-3">
-                <Gift className="h-8 w-8 text-indigo-700 mr-2" />
-                <h4 className="text-2xl font-bold text-indigo-700">TroGifts</h4>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">Creating unique, personalized gifts.</p>
-              <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()} TroGifts. All rights reserved.</p>
-            </div>
-
-            {/* Right Column: Get In Touch */}
-            <div className="text-left md:pt-1"> {/* md:pt-1 to align "Get in touch" title roughly with "TroGifts" title */}
-              <h5 className="text-xl font-semibold text-indigo-700 mb-4">Get In Touch</h5>
+            {/* Get In Touch Column (Now on the left for desktop) */}
+            <div className="text-center md:text-left md:pt-1"> {/* Changed alignment and order */}
+              <h5 className="text-xl font-semibold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
-                <li className="flex items-center text-sm text-gray-600">
-                  <Phone className="mr-3 h-4 w-4 text-gray-500" />
-                  <span>{displayPhoneNumber}</span>
+                <li className="flex items-center justify-center md:justify-start">
+                  <Phone className="mr-3 h-5 w-5 text-purple-400" />
+                  <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
                 </li>
                 <li>
-                  <a 
-                    href={whatsappLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex items-center text-sm text-gray-600 hover:text-green-600 transition-colors"
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center md:justify-start text-sm text-gray-300 hover:text-green-400 transition-colors group"
                   >
-                    <MessageSquare className="mr-3 h-4 w-4 text-gray-500" /> Chat on WhatsApp
+                    <MessageSquare className="mr-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" /> Chat on WhatsApp
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href={instagramLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex items-center text-sm text-gray-600 hover:text-pink-600 transition-colors"
+                  <a
+                    href={instagramLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center md:justify-start text-sm text-gray-300 hover:text-pink-400 transition-colors group"
                   >
-                    <Instagram className="mr-3 h-4 w-4 text-gray-500" /> Follow on Instagram
+                    <Instagram className="mr-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" /> Follow on Instagram
                   </a>
                 </li>
               </ul>
+            </div>
+
+            {/* About TroGifts Column (Now on the right for desktop) */}
+            <div className="text-center md:text-left"> {/* Changed alignment and order */}
+              <div className="flex items-center justify-center md:justify-start mb-4"> {/* Adjusted justification for icon and title */}
+                <Gift className="h-10 w-10 text-purple-400 mr-3" />
+                <h4 className="text-2xl font-bold text-purple-400">About TroGifts</h4>
+              </div>
+              <p className="text-sm text-gray-300 mb-4 leading-relaxed max-w-md mx-auto md:mx-0"> {/* Added max-w-md and centering for mobile */}
+                We specialize in creating unique, personalized name slips and gifts for children. Perfect for school supplies, party favors, or just a special treat! Our mission is to bring smiles with high-quality, custom-made items.
+              </p>
             </div>
           </div>
         </div>
