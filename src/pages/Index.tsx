@@ -10,6 +10,7 @@ const Index = () => {
   const placeholderWhatsAppNumber = "9072993180"; // Replace with your actual WhatsApp number
   const prefilledMessage = encodeURIComponent("Hello TroGifts! I'd like to place an order.");
   const whatsappLink = `https://wa.me/${placeholderWhatsAppNumber}?text=${prefilledMessage}`;
+   const forms = `https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform`;
 
   const posterExamples = [
     {
@@ -122,7 +123,7 @@ const Index = () => {
             <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
             </Button>
-             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform", "_blank")}}>
+             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(forms, "_blank")}}>
               <Send className="mr-2 h-5 w-5" /> Order Online
             </Button>
           </div>
