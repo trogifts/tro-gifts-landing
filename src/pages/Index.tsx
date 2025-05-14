@@ -1,7 +1,8 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"; // Removed CarouselPrevious, CarouselNext
 import Autoplay from "embla-carousel-autoplay";
 import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck, Image as ImageIconLucide } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -186,8 +187,7 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="ml-[-40px] text-purple-600 bg-white/80 hover:bg-purple-100" />
-            <CarouselNext className="mr-[-40px] text-purple-600 bg-white/80 hover:bg-purple-100" />
+            {/* CarouselPrevious and CarouselNext removed */}
           </Carousel>
           {slideCount > 0 && (
             <div className="flex justify-center gap-2 mt-6">
