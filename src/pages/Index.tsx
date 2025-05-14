@@ -123,7 +123,7 @@ const Index = () => {
             <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
             </Button>
-             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(forms, "_blank")}}>
+             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(whatsappLink, '_blank')}>
               <Send className="mr-2 h-5 w-5" /> Order Online
             </Button>
           </div>
