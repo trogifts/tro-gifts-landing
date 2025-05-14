@@ -1,17 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"; // Removed CarouselPrevious, CarouselNext
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck, Image as ImageIconLucide, Instagram } from "lucide-react"; // Added Instagram
+import { Gift, ShoppingCart, Send, MessageSquare, CheckCircle, User, Package, Clipboard, CreditCard, Truck, Sparkles, FileText, CalendarCheck, Image as ImageIconLucide, Instagram, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Index = () => {
-  const placeholderWhatsAppNumber = "9072993180"; // Replace with your actual WhatsApp number
+  const placeholderWhatsAppNumber = "9072993180";
+  const displayPhoneNumber = "+91 90729 93180";
   const prefilledMessage = encodeURIComponent("Hello TroGifts! I'd like to place an order.");
   const whatsappLink = `https://wa.me/${placeholderWhatsAppNumber}?text=${prefilledMessage}`;
   const forms = `https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform`;
-  const instagramLink = "https://www.instagram.com/trogift_shop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="; // Added Instagram link
+  const instagramLink = "https://www.instagram.com/trogift_shop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 
   const posterExamples = [
     {
@@ -304,35 +305,48 @@ const Index = () => {
       </section> 
 
       {/* Footer */}
-      <footer className="py-8 bg-gray-800 text-gray-400">
+      <footer className="py-12 bg-white text-gray-700">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="text-left md:text-left">
-              <p>&copy; {new Date().getFullYear()} Tro Gifts. All rights reserved.</p>
-              <p className="text-sm mt-1">Create with love for your little ones!</p>
+            {/* Left Column: TroGifts Info */}
+            <div className="text-left">
+              <div className="flex items-center mb-3">
+                <Gift className="h-8 w-8 text-indigo-700 mr-2" />
+                <h4 className="text-2xl font-bold text-indigo-700">TroGifts</h4>
+              </div>
+              <p className="text-sm text-gray-600 mb-2">Creating unique, personalized gifts.</p>
+              <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()} TroGifts. All rights reserved.</p>
             </div>
 
-            <div className="text-left md:text-right">
-              <h5 className="text-lg font-semibold text-gray-200 mb-3">About TroGifts</h5>
-              <p className="text-sm mb-4">
-                We specialize in creating unique, personalized gifts that bring joy to children and make every occasion special. From custom name slips to themed posters, each item is crafted with care and love.
-              </p>
-              <div className="flex flex-col sm:flex-row md:justify-end space-y-3 sm:space-y-0 sm:space-x-3">
-                <Button
-                  variant="link"
-                  className="text-green-400 hover:text-green-300 p-0 h-auto justify-start md:justify-end"
-                  onClick={() => window.open(whatsappLink, '_blank')}
-                >
-                  <MessageSquare className="mr-2 h-5 w-5" /> Chat with WhatsApp
-                </Button>
-                <Button
-                  variant="link"
-                  className="text-pink-400 hover:text-pink-300 p-0 h-auto justify-start md:justify-end"
-                  onClick={() => window.open(instagramLink, '_blank')}
-                >
-                  <Instagram className="mr-2 h-5 w-5" /> Follow on Instagram
-                </Button>
-              </div>
+            {/* Right Column: Get In Touch */}
+            <div className="text-left md:pt-1"> {/* md:pt-1 to align "Get in touch" title roughly with "TroGifts" title */}
+              <h5 className="text-xl font-semibold text-indigo-700 mb-4">Get In Touch</h5>
+              <ul className="space-y-3">
+                <li className="flex items-center text-sm text-gray-600">
+                  <Phone className="mr-3 h-4 w-4 text-gray-500" />
+                  <span>{displayPhoneNumber}</span>
+                </li>
+                <li>
+                  <a 
+                    href={whatsappLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center text-sm text-gray-600 hover:text-green-600 transition-colors"
+                  >
+                    <MessageSquare className="mr-3 h-4 w-4 text-gray-500" /> Chat on WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href={instagramLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center text-sm text-gray-600 hover:text-pink-600 transition-colors"
+                  >
+                    <Instagram className="mr-3 h-4 w-4 text-gray-500" /> Follow on Instagram
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
