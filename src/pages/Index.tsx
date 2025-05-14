@@ -10,7 +10,7 @@ const Index = () => {
   const placeholderWhatsAppNumber = "9072993180"; // Replace with your actual WhatsApp number
   const prefilledMessage = encodeURIComponent("Hello TroGifts! I'd like to place an order.");
   const whatsappLink = `https://wa.me/${placeholderWhatsAppNumber}?text=${prefilledMessage}`;
-   const forms = `https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform`;
+  const forms = `https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform`;
 
   const posterExamples = [
     {
@@ -20,7 +20,7 @@ const Index = () => {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1721322800607-8c383fusbneef04?auto=format&fit=crop&w=1000&q=80",
+      src: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=1000&q=80",
       alt: "Poster Example 2",
     },
     {
@@ -139,11 +139,20 @@ const Index = () => {
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-0 md:mx-auto">
             Create adorable, custom NameSlips for your child featuring their photo, name, school, and more! Perfect for labeling belongings or as a unique present.
           </p>
-          <div className="flex justify-start md:justify-center space-x-4">
-            <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform">
+          <div className="flex flex-col items-start sm:flex-row sm:items-center justify-start md:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <Button 
+              size="lg" 
+              onClick={() => window.open(whatsappLink, '_blank')} 
+              className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform"
+            >
               <MessageSquare className="mr-2" /> Order via WhatsApp
             </Button>
-            <Button size="lg" variant="secondary" className="bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform"  onClick={() => window.open(forms, '_blank')}>
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="w-full sm:w-auto bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform"  
+              onClick={() => window.open(forms, '_blank')}
+            >
               <Send className="mr-2" /> Order Online Now
             </Button>
           </div>
@@ -267,8 +276,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Final CTA: This section was requested to be removed by the user, but it was removed in a previous step. Keeping it commented out as a reminder if needed. */}
-      {/* 
+      {/* Final CTA Section (New Ordering Section) */}
       <section className="py-16 md:py-24 bg-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Your Custom Gifts?</h3>
@@ -276,20 +284,24 @@ const Index = () => {
             Don't wait! Order today and make your child's belongings and gifts stand out.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button size="lg" onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              onClick={() => window.open(whatsappLink, '_blank')} 
+              className="bg-green-500 hover:bg-green-600 text-white w-full sm:w-auto"
+            >
               <MessageSquare className="mr-2" /> Order via WhatsApp
             </Button>
             <Button 
               size="lg" 
-              className="bg-white text-purple-600 hover:bg-purple-100 hover:text-purple-700 w-full sm:w-auto" // Changed button style
-              onClick={() => alert("Online order form coming soon!")}
+              variant="outline" /* Changed from secondary to outline for better contrast on purple bg */
+              className="bg-white text-purple-600 hover:bg-purple-100 hover:text-purple-700 border-white hover:border-purple-100 w-full sm:w-auto" 
+              onClick={() => window.open(forms, '_blank')}
             >
               <Send className="mr-2" /> Order Online
             </Button>
           </div>
         </div>
       </section> 
-      */}
 
       {/* Footer */}
       <footer className="py-8 text-left md:text-center bg-gray-800 text-gray-400">
