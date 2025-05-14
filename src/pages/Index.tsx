@@ -122,7 +122,7 @@ const Index = () => {
             <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
               <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
             </Button>
-             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => alert("Online order form coming soon! You can link this to a Google Form or Typeform.")}>
+             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform", "_blank")}}>
               <Send className="mr-2 h-5 w-5" /> Order Online
             </Button>
           </div>
