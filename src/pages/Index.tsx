@@ -117,22 +117,23 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-yellow-100 text-gray-800 font-sans">
       {/* Header */}
-      <header className="py-6 px-4 md:px-8 shadow-md bg-white/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-purple-600">
-            <Gift className="inline-block mr-2 h-8 w-8" />
-            Tro Gifts
-          </h1>
-          <div className="hidden md:flex space-x-2">
-            <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
-              <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
-            </Button>
-             <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(forms, '_blank')}>
-              <Send className="mr-2 h-5 w-5" /> Order Online
-            </Button>
-          </div>
-        </div>
-      </header>
+      <header className="py-3 px-3 md:py-6 md:px-8 shadow-md bg-white/80 backdrop-blur-md sticky top-0 z-50">
+  <div className="container mx-auto flex justify-start md:justify-between items-center">
+    <h1 className="text-xl md:text-3xl font-bold text-purple-600">
+      <Gift className="inline-block mr-2 h-6 w-6 md:h-8 md:w-8" />
+      Tro Gifts
+    </h1>
+    <div className="hidden md:flex space-x-2">
+      <Button onClick={() => window.open(whatsappLink, '_blank')} className="bg-green-500 hover:bg-green-600 text-white">
+        <MessageSquare className="mr-2 h-5 w-5" /> WhatsApp Order
+      </Button>
+      <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => window.open(forms, '_blank')}>
+        <Send className="mr-2 h-5 w-5" /> Order Online
+      </Button>
+    </div>
+  </div>
+</header>
+
 
       {/* Hero Section */}
       <section className="py-4 md:py-10 text-left md:text-center bg-purple-80">
