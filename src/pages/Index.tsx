@@ -233,7 +233,7 @@ const Index = () => {
       <section id="designs" className="py-16 md:py-20 bg-yellow-50">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-yellow-700">Explore Our Designs</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {designExamples.map((design) => (
               <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
                 <CardContent className="flex flex-col items-start md:items-center justify-center p-6 aspect-square">
