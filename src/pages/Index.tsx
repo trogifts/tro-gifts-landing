@@ -214,19 +214,19 @@ const Index = () => {
 
 
       {/* Updated What Makes Our Gifts Special Section */}
-      <section id="specialities" className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-pink-600">What Makes Our Gifts Special?</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {specialities.map((speciality) => (
-              <div key={speciality.title} className="text-left md:text-center p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex justify-start md:justify-center mb-4">{speciality.icon}</div>
-                <h6 className="text-xl font-semibold text-gray-700 mb-2">{speciality.title}</h6>
-              </div>
-            ))}
-          </div>
+<section id="specialities" className="py-16 md:py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-pink-600">What Makes Our Gifts Special?</h3>
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+      {specialities.map((speciality) => (
+        <div key={speciality.title} className="text-left md:text-center p-3 sm:p-4 md:p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div className="flex justify-start md:justify-center mb-2 md:mb-4">{speciality.icon}</div>
+          <h4 className="text-lg sm:text-xl text-gray-700 mb-1 md:mb-2">{speciality.title}</h4>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* New Designs Section */}
       <section id="designs" className="py-16 md:py-20 bg-yellow-50">
