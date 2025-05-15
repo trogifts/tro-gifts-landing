@@ -238,7 +238,7 @@ const Index = () => {
               <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
                 <CardContent className="flex flex-col items-start md:items-center justify-center p-6 aspect-square">
                   {design.imgSrc ? (
-                    <img src={design.imgSrc} alt={design.alt} className="w-24 h-24 object-contain mb-4 rounded-md self-start md:self-center" />
+                    <img src={design.imgSrc} alt={design.alt} className="w-40 h-40 object-contain mb-4 rounded-md self-start md:self-center" />
                   ) : (
                     <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60 self-start md:self-center" />
                   )}
