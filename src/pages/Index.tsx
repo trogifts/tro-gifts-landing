@@ -357,6 +357,7 @@ const Index = () => {
                 </li>
               </ul>
             </div>
+             <p className="text-xs text-gray-400">&copy; 2025 TroGifts. All rights reserved.</p>
           </div>
           
           {/* Copyright text now at the bottom of the footer */}
