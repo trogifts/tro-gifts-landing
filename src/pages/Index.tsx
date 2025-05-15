@@ -354,14 +354,16 @@ const Index = () => {
             </div>
 
             {/* Get In Touch Column (Right) */}
-            <div className="text-center md:text-left">
+            <div className="text-center ">
               <h5 className="text-xl font-bold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
                 <li className="flex items-center justify-center ">
+                     <Phone className="h-5 w-5 text-purple-400 ml-3 md:ml-0" />
                   <span className="text-sm text-gray-300 md:mr-3">{displayPhoneNumber}</span>
-                  <Phone className="h-5 w-5 text-purple-400 ml-3 md:ml-0" />
+               
                 </li>
-                <li className="flex items-center justify-center md:justify-end">
+                <li className="flex items-center justify-center ">
+            <MessageSquare className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-green-400 transition-colors" />
                   <a
                     href={whatsappLink}
                     target="_blank"
@@ -370,9 +372,11 @@ const Index = () => {
                   >
                     Chat on WhatsApp
                   </a>
-                  <MessageSquare className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-green-400 transition-colors" />
+
                 </li>
                 <li className="flex items-center justify-center ">
+                  
+                  <Instagram className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-pink-400 transition-colors" />
                   <a
                     href={instagramLink}
                     target="_blank"
@@ -381,7 +385,6 @@ const Index = () => {
                   >
                     Follow on Instagram
                   </a>
-                  <Instagram className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-pink-400 transition-colors" />
                 </li>
               </ul>
             </div>
