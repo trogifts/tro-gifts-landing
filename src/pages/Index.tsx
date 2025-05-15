@@ -339,7 +339,7 @@ const Index = () => {
       </section> 
 
       {/* Footer */}
-      <footer className="py-4 bg-gray-800 text-white">
+      <footer className="py-8 bg-gray-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start mb-8">
             {/* About TroGifts Column (Left) */}
@@ -354,46 +354,41 @@ const Index = () => {
             </div>
 
             {/* Get In Touch Column (Right) */}
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-right">
               <h5 className="text-xl font-bold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
                 <li className="flex items-center justify-center md:justify-end">
-                  <Phone className="md:hidden mr-3 h-5 w-5 text-purple-400" />
-                   <Phone className="hidden md:block ml-3 h-5 w-5 text-purple-400" />
-                  <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
-                 
+                  <span className="text-sm text-gray-300 md:mr-3">{displayPhoneNumber}</span>
+                  <Phone className="h-5 w-5 text-purple-400 ml-3 md:ml-0" />
                 </li>
                 <li className="flex items-center justify-center md:justify-end">
-                  <MessageSquare className="md:hidden mr-3 h-5 w-5 text-purple-400" />
-                  <MessageSquare className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" />
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-green-400 transition-colors"
+                    className="text-sm text-gray-300 hover:text-green-400 transition-colors md:mr-3"
                   >
                     Chat on WhatsApp
                   </a>
-                  
+                  <MessageSquare className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-green-400 transition-colors" />
                 </li>
                 <li className="flex items-center justify-center md:justify-end">
-                  <Instagram className="md:hidden mr-3 h-5 w-5 text-purple-400" />
-                  
-                  <Instagram className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" />
                   <a
                     href={instagramLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-pink-400 transition-colors"
+                    className="text-sm text-gray-300 hover:text-pink-400 transition-colors md:mr-3"
                   >
                     Follow on Instagram
                   </a>
+                  <Instagram className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-pink-400 transition-colors" />
                 </li>
               </ul>
             </div>
-            
           </div>
-           <p className="text-xs text-gray-400 text-center">&copy; 2025 TroGifts. All rights reserved.</p>
+          <div className="border-t border-gray-700 pt-4 mt-4">
+            <p className="text-xs text-gray-400 text-center">&copy; 2025 TroGifts. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
