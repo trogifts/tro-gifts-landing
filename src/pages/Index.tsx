@@ -359,11 +359,13 @@ const Index = () => {
               <ul className="space-y-3">
                 <li className="flex items-center justify-center md:justify-end">
                   <Phone className="md:hidden mr-3 h-5 w-5 text-purple-400" />
+                   <Phone className="hidden md:block ml-3 h-5 w-5 text-purple-400" />
                   <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
-                  <Phone className="hidden md:block ml-3 h-5 w-5 text-purple-400" />
+                 
                 </li>
                 <li className="flex items-center justify-center md:justify-end">
                   <MessageSquare className="md:hidden mr-3 h-5 w-5 text-purple-400" />
+                  <MessageSquare className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" />
                   <a
                     href={whatsappLink}
                     target="_blank"
@@ -372,10 +374,12 @@ const Index = () => {
                   >
                     Chat on WhatsApp
                   </a>
-                  <MessageSquare className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" />
+                  
                 </li>
                 <li className="flex items-center justify-center md:justify-end">
                   <Instagram className="md:hidden mr-3 h-5 w-5 text-purple-400" />
+                  
+                  <Instagram className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" />
                   <a
                     href={instagramLink}
                     target="_blank"
@@ -384,7 +388,6 @@ const Index = () => {
                   >
                     Follow on Instagram
                   </a>
-                  <Instagram className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" />
                 </li>
               </ul>
             </div>
