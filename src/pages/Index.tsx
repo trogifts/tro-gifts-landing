@@ -354,7 +354,7 @@ const Index = () => {
             </div>
 
             {/* Get In Touch Column (Right) */}
-            <div className="text-center md:text-right">
+            <div className="text-center md:text-left">
               <h5 className="text-xl font-bold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
                 <li className="flex items-center justify-center md:justify-end">
