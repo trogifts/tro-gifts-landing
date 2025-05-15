@@ -221,7 +221,8 @@ const Index = () => {
       {specialities.map((speciality) => (
         <div key={speciality.title} className="text-left md:text-center p-3 sm:p-4 md:p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <div className="flex justify-start md:justify-center mb-2 md:mb-4">{speciality.icon}</div>
-          <h4 className="text-lg sm:text-xl text-gray-700 mb-1 md:mb-2">{speciality.title}</h4>
+          <h4 className="text-base sm:text-lg text-gray-700 mb-1 md:mb-2">{speciality.title}</h4>
+          
         </div>
       ))}
     </div>
