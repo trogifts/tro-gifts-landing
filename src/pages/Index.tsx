@@ -117,7 +117,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-yellow-100 text-gray-800 font-sans">
       {/* Header */}
-<header className="py-3 px-3 md:py-4 md:px-6 shadow-md bg-white/80 backdrop-blur-md sticky top-0 z-50">
+<header className="py-6 px-4 md:py-4 md:px-6 shadow-md bg-white/80 backdrop-blur-md sticky top-0 z-50">
   <div className="container mx-auto flex justify-between items-center">
     <h1 className="text-xl md:text-2xl font-bold text-purple-600 flex items-center">
       <Gift className="inline-block mr-1 h-5 w-5 md:h-6 md:w-6" />
