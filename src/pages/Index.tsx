@@ -133,7 +133,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-20 text-left md:text-center bg-white">
+      <section className="py-16 md:py-20 text-left md:text-center bg-purple-50">
          <div className="container mx-auto px-4">
 
           <Carousel
