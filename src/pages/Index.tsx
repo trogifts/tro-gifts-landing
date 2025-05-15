@@ -363,7 +363,7 @@ const Index = () => {
                
                 </li>
                 <li className="flex items-center justify-center ">
-            <MessageSquare className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-green-400 transition-colors" />
+            <MessageSquare className="h-5 w-5 py-3 text-purple-400 ml-3 md:ml-0 group-hover:text-green-400 transition-colors" />
                   <a
                     href={whatsappLink}
                     target="_blank"
