@@ -134,37 +134,8 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="py-16 md:py-20 text-left md:text-center bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
-            Brighten Their Day with Personalized Gifts!
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-0 md:mx-auto">
-            Create adorable, custom NameSlips for your child featuring their photo, name, school, and more! Perfect for labeling belongings or as a unique present.
-          </p>
-          <div className="flex flex-col items-start sm:flex-row sm:items-center justify-start md:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button 
-              size="lg" 
-              onClick={() => window.open(whatsappLink, '_blank')} 
-              className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform"
-            >
-              <MessageSquare className="mr-2" /> Order via WhatsApp
-            </Button>
-            <Button 
-              size="lg" 
-              variant="secondary" 
-              className="w-full sm:w-auto bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform mt-4 md:mt-0"  
-              onClick={() => window.open(forms, '_blank')}
-            >
-              <Send className="mr-2" /> Order Online Now
-            </Button>
-          </div>
-        </div>
-      </section>
+         <div className="container mx-auto px-4">
 
-      {/* New Poster Carousel Section */}
-      <section id="posters" className="py-16 md:py-20 bg-purple-50">
-        <div className="container mx-auto px-4">
-          <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-purple-700">Our Featured Posters</h3>
           <Carousel
             setApi={setCarouselApi}
             plugins={[plugin.current]}
@@ -208,8 +179,34 @@ const Index = () => {
             </div>
           )}
         </div>
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+            Brighten Their Day with Personalized Gifts!
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-0 md:mx-auto">
+            Create adorable, custom NameSlips for your child featuring their photo, name, school, and more! Perfect for labeling belongings or as a unique present.
+          </p>
+          <div className="flex flex-col items-start sm:flex-row sm:items-center justify-start md:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <Button 
+              size="lg" 
+              onClick={() => window.open(whatsappLink, '_blank')} 
+              className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white shadow-lg transform hover:scale-105 transition-transform"
+            >
+              <MessageSquare className="mr-2" /> Order via WhatsApp
+            </Button>
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="w-full sm:w-auto bg-purple-500 hover:bg-purple-600 text-white shadow-lg transform hover:scale-105 transition-transform mt-4 md:mt-0"  
+              onClick={() => window.open(forms, '_blank')}
+            >
+              <Send className="mr-2" /> Order Online Now
+            </Button>
+          </div>
+        </div>
       </section>
 
+      {/* New Poster Carousel Section */}
       {/* Updated What Makes Our Gifts Special Section */}
       <section id="specialities" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
