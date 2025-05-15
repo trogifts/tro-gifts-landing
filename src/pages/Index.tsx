@@ -233,20 +233,25 @@ const Index = () => {
       <section id="designs" className="py-16 md:py-20 bg-yellow-50">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl md:text-4xl font-bold text-left md:text-center mb-12 text-yellow-700">Explore Our Designs</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
-            {designExamples.map((design) => (
-              <Card key={design.id} className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
-                <CardContent className="flex flex-col items-start md:items-center justify-center p-6 aspect-square">
-                  {design.imgSrc ? (
-                    <img src={design.imgSrc} alt={design.alt} className="w-80 h-80 object-contain mb-4 rounded-md self-start md:self-center" />
-                  ) : (
-                    <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60 self-start md:self-center" />
-                  )}
-                  <p className="font-semibold text-lg text-gray-800 text-left md:text-center">{design.name}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+<div className="container mx-auto px-4">
+  <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
+    {designExamples.map((design, index) => (
+      <div key={design.id} 
+           className={`${index % 2 === 0 ? 'ml-0 mr-auto' : 'ml-auto mr-0'} w-4/5 sm:w-full sm:mx-0`}>
+        <Card className={`overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${design.color}`}>
+          <CardContent className="flex flex-col items-start md:items-center justify-center p-6 aspect-square">
+            {design.imgSrc ? (
+              <img src={design.imgSrc} alt={design.alt} className="w-full h-auto max-w-full object-contain mb-4 rounded-md self-start md:self-center" />
+            ) : (
+              <ImageIconLucide className="h-20 w-20 text-gray-700 mb-4 opacity-60 self-start md:self-center" />
+            )}
+            <p className="font-semibold text-lg text-gray-800 text-left md:text-center">{design.name}</p>
+          </CardContent>
+        </Card>
+      </div>
+    ))}
+  </div>
+</div>
            <p className="text-left md:text-center mt-8 text-gray-600">More exciting designs coming soon. Stay tuned!</p>
         </div>
       </section>
