@@ -340,7 +340,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 bg-gray-800 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 pt-10">
           <div className="grid md:grid-cols-2 gap-8 items-start mb-8">
             {/* About TroGifts Column (Left) */}
             <div className="text-center md:text-left"> 
