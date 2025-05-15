@@ -340,7 +340,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 bg-gray-800 text-white">
-        <div className="container mx-auto px-4 pr-20">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start mb-8">
             {/* About TroGifts Column (Left) */}
             <div className="text-center md:text-left"> 
@@ -353,15 +353,16 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Get In Touch Column (Right) - Now aligned to the right */}
-            <div className="text-center md:text-right">
+            {/* Get In Touch Column (Right) - Now aligned to the left */}
+            <div className="text-center md:text-left">
               <h5 className="text-xl font-bold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
-                <li className="flex items-center justify-center md:justify-end">
+                <li className="flex items-center justify-center md:justify-start">
+                  <Phone className="h-5 w-5 text-purple-400 mr-2" />
                   <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
-                  <Phone className="h-5 w-5 text-purple-400 ml-2" />
                 </li>
-                <li className="flex items-center justify-center md:justify-end">
+                <li className="flex items-center justify-center md:justify-start">
+                  <MessageSquare className="h-5 w-5 text-purple-400 mr-2 group-hover:text-green-400 transition-colors" />
                   <a
                     href={whatsappLink}
                     target="_blank"
@@ -370,9 +371,9 @@ const Index = () => {
                   >
                     Chat on WhatsApp
                   </a>
-                  <MessageSquare className="h-5 w-5 text-purple-400 ml-2 group-hover:text-green-400 transition-colors" />
                 </li>
-                <li className="flex items-center justify-center md:justify-end">
+                <li className="flex items-center justify-center md:justify-start">
+                  <Instagram className="h-5 w-5 text-purple-400 mr-2 group-hover:text-pink-400 transition-colors" />
                   <a
                     href={instagramLink}
                     target="_blank"
@@ -381,7 +382,6 @@ const Index = () => {
                   >
                     Follow on Instagram
                   </a>
-                  <Instagram className="h-5 w-5 text-purple-400 ml-2 group-hover:text-pink-400 transition-colors" />
                 </li>
               </ul>
             </div>
