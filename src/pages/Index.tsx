@@ -353,35 +353,32 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Get In Touch Column (Right) */}
-            <div className="text-center ">
+            {/* Get In Touch Column (Right) - Now aligned to the left */}
+            <div className="text-center md:text-left">
               <h5 className="text-xl font-bold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
-                <li className="flex items-center justify-center ">
-                     <Phone className="h-5 w-5 text-purple-400 ml-3 md:ml-0" />
-                  <span className="text-sm text-gray-300 md:mr-3">{displayPhoneNumber}</span>
-               
+                <li className="flex items-center justify-center md:justify-start">
+                  <Phone className="h-5 w-5 text-purple-400 mr-2" />
+                  <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
                 </li>
-                <li className="flex items-center justify-center ">
-            <MessageSquare className="h-5 w-5  text-purple-400 ml-3 md:ml-0 group-hover:text-green-400 transition-colors" />
+                <li className="flex items-center justify-center md:justify-start">
+                  <MessageSquare className="h-5 w-5 text-purple-400 mr-2 group-hover:text-green-400 transition-colors" />
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-green-400 transition-colors md:mr-3"
+                    className="text-sm text-gray-300 hover:text-green-400 transition-colors"
                   >
                     Chat on WhatsApp
                   </a>
-
                 </li>
-                <li className="flex items-center justify-center ">
-                  
-                  <Instagram className="h-5 w-5 text-purple-400 ml-3 md:ml-0 group-hover:text-pink-400 transition-colors" />
+                <li className="flex items-center justify-center md:justify-start">
+                  <Instagram className="h-5 w-5 text-purple-400 mr-2 group-hover:text-pink-400 transition-colors" />
                   <a
                     href={instagramLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-pink-400 transition-colors md:mr-3"
+                    className="text-sm text-gray-300 hover:text-pink-400 transition-colors"
                   >
                     Follow on Instagram
                   </a>
