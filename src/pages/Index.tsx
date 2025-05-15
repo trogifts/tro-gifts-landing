@@ -70,8 +70,8 @@ const Index = () => {
 
   const designExamples = [
     { id: 1, name: "Superhero Theme", color: "bg-blue-200", imgSrc: "https://res.cloudinary.com/dnbwcvbzy/image/upload/v1747320625/Name_slip_3_uxr84c.png", alt: "Superhero design" },
-    { id: 2, name: "Princess Dreams", color: "bg-pink-200", imgSrc: "https://images.unsplash.com/photo-1581860226246-b1a7a6671a8d?auto=format&fit=crop&w=300&q=80", alt: "Princess design" },
-    { id: 3, name: "Animal Friends", color: "bg-green-200", imgSrc: "https://images.unsplash.com/photo-1517059777501-45759cd18372?auto=format&fit=crop&w=300&q=80", alt: "Animal design" },
+    { id: 2, name: "Princess Dreams", color: "bg-pink-200", imgSrc: "https://res.cloudinary.com/dnbwcvbzy/image/upload/v1747336199/Edge_On_Handmade_Gifts_Logo_1_cia7ua.png", alt: "Princess design" },
+    { id: 3, name: "Animal Friends", color: "bg-green-200", imgSrc: "https://res.cloudinary.com/dnbwcvbzy/image/upload/v1747336200/Copy_of_Name_SLIPs_2_dqpo0d.png", alt: "Animal design" },
     { id: 4, name: "Space Adventure", color: "bg-indigo-200", imgSrc: "https://images.unsplash.com/photo-1581833834593-f1d99a02d302?auto=format&fit=crop&w=300&q=80", alt: "Space design" },
     { id: 5, name: "Unicorn Magic", color: "bg-purple-200", imgSrc: "https://images.unsplash.com/photo-1593239008061-43865a7392ab?auto=format&fit=crop&w=300&q=80", alt: "Unicorn design" },
     { id: 6, name: "Sports Star", color: "bg-yellow-200", imgSrc: "https://images.unsplash.com/photo-1552667466-07770ae910d9?auto=format&fit=crop&w=300&q=80", alt: "Sports design" },
