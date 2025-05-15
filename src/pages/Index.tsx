@@ -135,7 +135,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-4 md:py-10 text-left md:text-center bg-purple-50">
+      <section className="py-4 md:py-10 text-left md:text-center bg-purple-80">
          <div className="container mx-auto px-4">
 
           <div className="relative w-full max-w-3xl mx-0 md:mx-auto">
@@ -357,13 +357,9 @@ const Index = () => {
                 </li>
               </ul>
             </div>
-             <p className="text-xs text-gray-400">&copy; 2025 TroGifts. All rights reserved.</p>
+             <p className="text-xs text-gray-400 text-center">&copy; 2025 TroGifts. All rights reserved.</p>
           </div>
           
-          {/* Copyright text now at the bottom of the footer */}
-          <div className="text-center border-t border-gray-700 pt-4">
-            <p className="text-xs text-gray-400">&copy; 2025 TroGifts. All rights reserved.</p>
-          </div>
         </div>
       </footer>
     </div>
