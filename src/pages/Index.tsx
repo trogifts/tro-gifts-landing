@@ -14,10 +14,12 @@ const Index = () => {
   const forms = `https://docs.google.com/forms/d/e/1FAIpQLScAalHHBMRerSlElnOkbXxeQTXMvvhqp__M2kX_1053pVgWtg/viewform`;
   const instagramLink = "https://www.instagram.com/trogift_shop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 
+  // Fix for Google Drive images - convert sharing URL to direct image URL
   const posterExamples = [
     {
       id: 1,
-      src: "https://drive.google.com/file/d/1IP1N7GF-mx2IjbY9Gmc8ZI5KqQyLXYap/view?usp=sharing",
+      // For Google Drive images, use this format instead of the sharing link
+      src: "https://drive.google.com/uc?export=view&id=1IP1N7GF-mx2IjbY9Gmc8ZI5KqQyLXYap",
       alt: "Poster Example 1",
     },
     {
@@ -162,9 +164,9 @@ const Index = () => {
               </CarouselContent>
             </Carousel>
             
-            {/* Dots positioned absolutely over the carousel */}
+            {/* Dots positioned absolutely over the carousel bottom */}
             {slideCount > 0 && (
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
                 {Array.from({ length: slideCount }).map((_, index) => (
                   <button
                     key={index}
@@ -308,11 +310,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 bg-gray-800 text-white">
         <div className="container mx-auto px-4">
-          <div className="mb-8 text-center">
-            <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} TroGifts. All rights reserved.</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* About TroGifts Column (Now on the left for desktop) */}
+          <div className="grid md:grid-cols-2 gap-8 items-start mb-8">
+            {/* About TroGifts Column (Left) */}
             <div className="text-center md:text-left"> 
               <div className="flex items-center justify-center md:justify-start mb-4"> 
                 <Gift className="h-10 w-10 text-purple-400 mr-3" />
@@ -323,36 +322,46 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Get In Touch Column (Now on the right for desktop) */}
-            <div className="text-center md:text-right md:pt-1">
-              <h5 className="text-xl font-semibold text-purple-400 mb-4">Get In Touch</h5>
+            {/* Get In Touch Column (Right) */}
+            <div className="text-center md:text-right">
+              <h5 className="text-xl font-bold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
                 <li className="flex items-center justify-center md:justify-end">
+                  <Phone className="md:hidden mr-3 h-5 w-5 text-purple-400" />
                   <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
-                  <Phone className="ml-3 h-5 w-5 text-purple-400" />
+                  <Phone className="hidden md:block ml-3 h-5 w-5 text-purple-400" />
                 </li>
-                <li>
+                <li className="flex items-center justify-center md:justify-end">
+                  <MessageSquare className="md:hidden mr-3 h-5 w-5 text-purple-400" />
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center md:justify-end text-sm text-gray-300 hover:text-green-400 transition-colors group"
+                    className="text-sm text-gray-300 hover:text-green-400 transition-colors"
                   >
-                    Chat on WhatsApp <MessageSquare className="ml-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" />
+                    Chat on WhatsApp
                   </a>
+                  <MessageSquare className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" />
                 </li>
-                <li>
+                <li className="flex items-center justify-center md:justify-end">
+                  <Instagram className="md:hidden mr-3 h-5 w-5 text-purple-400" />
                   <a
                     href={instagramLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center md:justify-end text-sm text-gray-300 hover:text-pink-400 transition-colors group"
+                    className="text-sm text-gray-300 hover:text-pink-400 transition-colors"
                   >
-                    Follow on Instagram <Instagram className="ml-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" />
+                    Follow on Instagram
                   </a>
+                  <Instagram className="hidden md:block ml-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" />
                 </li>
               </ul>
             </div>
+          </div>
+          
+          {/* Copyright text now at the bottom of the footer */}
+          <div className="text-center border-t border-gray-700 pt-4">
+            <p className="text-xs text-gray-400">&copy; 2025 TroGifts. All rights reserved.</p>
           </div>
         </div>
       </footer>
