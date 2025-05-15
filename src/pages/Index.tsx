@@ -19,7 +19,7 @@ const Index = () => {
     {
       id: 1,
       // For Google Drive images, use this format instead of the sharing link
-      src: "https://drive.google.com/uc?export=view&id=1IP1N7GF-mx2IjbY9Gmc8ZI5KqQyLXYap",
+      src: "https://res.cloudinary.com/dnqdcnrzt/image/upload/v1747313807/wr0dvoecpzwkqryqktfm.png",
       alt: "Poster Example 1",
     },
     {
