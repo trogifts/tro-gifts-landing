@@ -182,6 +182,7 @@ const Index = () => {
             )}
           </div>
         </div>
+        <br></br>
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
             Brighten Their Day with Personalized Gifts!
