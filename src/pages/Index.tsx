@@ -24,7 +24,7 @@ const Index = () => {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=1000&q=80",
+      src: "https://res.cloudinary.com/dnqdcnrzt/image/upload/v1747311258/den1mayobvdlxpr43h08.jpg",
       alt: "Poster Example 2",
     },
     {
