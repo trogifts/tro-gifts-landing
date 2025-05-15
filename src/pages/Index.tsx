@@ -136,48 +136,51 @@ const Index = () => {
       <section className="py-16 md:py-20 text-left md:text-center bg-purple-50">
          <div className="container mx-auto px-4">
 
-          <Carousel
-            setApi={setCarouselApi}
-            plugins={[plugin.current]}
-            className="w-full max-w-3xl mx-0 md:mx-auto"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-            opts={{
-              loop: true,
-            }}
-          >
-            <CarouselContent>
-              {posterExamples.map((poster) => (
-                <CarouselItem key={poster.id}>
-                  <div className="p-1">
-                    <Card className="overflow-hidden shadow-lg">
-                      <CardContent className="flex items-center justify-center p-0 aspect-[16/9]">
-                        <img src={poster.src} alt={poster.alt} className="w-full h-full object-cover" />
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {/* CarouselPrevious and CarouselNext removed */}
-          </Carousel>
-          {slideCount > 0 && (
-            <div className="flex justify-center gap-2 mt-6">
-              {Array.from({ length: slideCount }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => carouselApi?.scrollTo(index)}
-                  className={cn(
-                    "h-3 w-3 rounded-full transition-all duration-300 ease-out",
-                    index === currentSlide
-                      ? "bg-purple-600 scale-125"
-                      : "bg-purple-300 hover:bg-purple-400"
-                  )}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          <div className="relative w-full max-w-3xl mx-0 md:mx-auto">
+            <Carousel
+              setApi={setCarouselApi}
+              plugins={[plugin.current]}
+              className="w-full"
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+              opts={{
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                {posterExamples.map((poster) => (
+                  <CarouselItem key={poster.id}>
+                    <div className="p-1">
+                      <Card className="overflow-hidden shadow-lg">
+                        <CardContent className="flex items-center justify-center p-0 aspect-[16/9]">
+                          <img src={poster.src} alt={poster.alt} className="w-full h-full object-cover" />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+            
+            {/* Dots positioned absolutely over the carousel */}
+            {slideCount > 0 && (
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                {Array.from({ length: slideCount }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => carouselApi?.scrollTo(index)}
+                    className={cn(
+                      "h-3 w-3 rounded-full transition-all duration-300 ease-out",
+                      index === currentSlide
+                        ? "bg-purple-600 scale-125"
+                        : "bg-purple-300 hover:bg-purple-400"
+                    )}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
@@ -308,22 +311,33 @@ const Index = () => {
             <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} TroGifts. All rights reserved.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Get In Touch Column (Now on the left for desktop) */}
-            <div className="text-center md:text-left md:pt-1"> {/* Changed alignment and order */}
+            {/* About TroGifts Column (Now on the left for desktop) */}
+            <div className="text-center md:text-left"> 
+              <div className="flex items-center justify-center md:justify-start mb-4"> 
+                <Gift className="h-10 w-10 text-purple-400 mr-3" />
+                <h4 className="text-2xl font-bold text-purple-400">About TroGifts</h4>
+              </div>
+              <p className="text-sm text-gray-300 mb-4 leading-relaxed max-w-md mx-auto md:mx-0"> 
+                We specialize in creating unique, personalized name slips and gifts for children. Perfect for school supplies, party favors, or just a special treat! Our mission is to bring smiles with high-quality, custom-made items.
+              </p>
+            </div>
+
+            {/* Get In Touch Column (Now on the right for desktop) */}
+            <div className="text-center md:text-right md:pt-1">
               <h5 className="text-xl font-semibold text-purple-400 mb-4">Get In Touch</h5>
               <ul className="space-y-3">
-                <li className="flex items-center justify-center md:justify-start">
-                  <Phone className="mr-3 h-5 w-5 text-purple-400" />
+                <li className="flex items-center justify-center md:justify-end">
                   <span className="text-sm text-gray-300">{displayPhoneNumber}</span>
+                  <Phone className="ml-3 h-5 w-5 text-purple-400" />
                 </li>
                 <li>
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center md:justify-start text-sm text-gray-300 hover:text-green-400 transition-colors group"
+                    className="flex items-center justify-center md:justify-end text-sm text-gray-300 hover:text-green-400 transition-colors group"
                   >
-                    <MessageSquare className="mr-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" /> Chat on WhatsApp
+                    Chat on WhatsApp <MessageSquare className="ml-3 h-5 w-5 text-purple-400 group-hover:text-green-400 transition-colors" />
                   </a>
                 </li>
                 <li>
@@ -331,23 +345,12 @@ const Index = () => {
                     href={instagramLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center md:justify-start text-sm text-gray-300 hover:text-pink-400 transition-colors group"
+                    className="flex items-center justify-center md:justify-end text-sm text-gray-300 hover:text-pink-400 transition-colors group"
                   >
-                    <Instagram className="mr-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" /> Follow on Instagram
+                    Follow on Instagram <Instagram className="ml-3 h-5 w-5 text-purple-400 group-hover:text-pink-400 transition-colors" />
                   </a>
                 </li>
               </ul>
-            </div>
-
-            {/* About TroGifts Column (Now on the right for desktop) */}
-            <div className="text-center md:text-left"> {/* Changed alignment and order */}
-              <div className="flex items-center justify-center md:justify-start mb-4"> {/* Adjusted justification for icon and title */}
-                <Gift className="h-10 w-10 text-purple-400 mr-3" />
-                <h4 className="text-2xl font-bold text-purple-400">About TroGifts</h4>
-              </div>
-              <p className="text-sm text-gray-300 mb-4 leading-relaxed max-w-md mx-auto md:mx-0"> {/* Added max-w-md and centering for mobile */}
-                We specialize in creating unique, personalized name slips and gifts for children. Perfect for school supplies, party favors, or just a special treat! Our mission is to bring smiles with high-quality, custom-made items.
-              </p>
             </div>
           </div>
         </div>
