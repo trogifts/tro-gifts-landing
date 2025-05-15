@@ -69,7 +69,7 @@ const Index = () => {
   ];
 
   const designExamples = [
-    { id: 1, name: "Superhero Theme", color: "bg-blue-200", imgSrc: "https://images.unsplash.com/photo-1576773720283-a3314880dda3?auto=format&fit=crop&w=300&q=80", alt: "Superhero design" },
+    { id: 1, name: "Superhero Theme", color: "bg-blue-200", imgSrc: "https://res.cloudinary.com/dnbwcvbzy/image/upload/v1747320625/Name_slip_3_uxr84c.png", alt: "Superhero design" },
     { id: 2, name: "Princess Dreams", color: "bg-pink-200", imgSrc: "https://images.unsplash.com/photo-1581860226246-b1a7a6671a8d?auto=format&fit=crop&w=300&q=80", alt: "Princess design" },
     { id: 3, name: "Animal Friends", color: "bg-green-200", imgSrc: "https://images.unsplash.com/photo-1517059777501-45759cd18372?auto=format&fit=crop&w=300&q=80", alt: "Animal design" },
     { id: 4, name: "Space Adventure", color: "bg-indigo-200", imgSrc: "https://images.unsplash.com/photo-1581833834593-f1d99a02d302?auto=format&fit=crop&w=300&q=80", alt: "Space design" },
@@ -212,7 +212,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* New Poster Carousel Section */}
+
       {/* Updated What Makes Our Gifts Special Section */}
       <section id="specialities" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
