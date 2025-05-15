@@ -17,7 +17,7 @@ const Index = () => {
   const posterExamples = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=1000&q=80",
+      src: "https://drive.google.com/file/d/1IP1N7GF-mx2IjbY9Gmc8ZI5KqQyLXYap/view?usp=sharing",
       alt: "Poster Example 1",
     },
     {
@@ -133,7 +133,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-20 text-left md:text-center bg-purple-50">
+      <section className="py-8 md:py-20 text-left md:text-center bg-purple-50">
          <div className="container mx-auto px-4">
 
           <div className="relative w-full max-w-3xl mx-0 md:mx-auto">
